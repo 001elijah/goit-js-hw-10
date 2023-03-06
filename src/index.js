@@ -24,7 +24,11 @@ function getCountries(evt) {
     };
     fetchCountries(evt.target.value.trim())
     .then((countries) => renderCountryList(countries))
-    .catch(() => Notiflix.Notify.failure(ERROR_TEXT));
+    .catch(() => {
+        Notiflix.Notify.failure(ERROR_TEXT);
+        countryCard.innerHTML = '';
+        countryList.innerHTML = '';
+    });
 };
 
 function renderCountryList(countries) {
