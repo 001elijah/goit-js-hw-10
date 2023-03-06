@@ -43,6 +43,9 @@ function renderCountryList(countries) {
         };
         if (arr.length === 1) {
             isList = false;
+            const languagesArr = Object.values(country.languages);
+            const languagesMarkup = languagesArr.map(language => language = ' ' + String(language));
+
             return `
             <div style="display: flex; gap: 10px; align-items: center">
             <img src="${country.flags.svg}" width="45px" height="30px"/>
@@ -50,7 +53,7 @@ function renderCountryList(countries) {
             </div>
             <p>Capital: ${country.capital}</p>
             <p>Population: ${country.population}</p>
-            <p>Languages: ${Object.values(country.languages)}</p>
+            <p>Languages:${languagesMarkup}</p>
             `;
         };
     })
